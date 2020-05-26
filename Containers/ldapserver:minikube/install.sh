@@ -1,6 +1,10 @@
 #! /bin/bash
-# instal.lacio slapd
+# Kubernetes
+## @edt ASIX M14-PROJECTE Curs 2019-2020
+## Roberto Altamirano Martinez
+# Instalacion LDAP SERVER
 # -------------------------------------
+
 cp  /opt/docker/ldap.conf /etc/openldap/ldap.conf
 rm -rf /etc/openldap/slapd.d/*
 rm -rf /var/lib/ldap/*

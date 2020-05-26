@@ -1,6 +1,5 @@
-# ldapserver_18roberto
-
-## roberto@edt ASIX M06-ASO Curs 2018-2019
+# Kubernetes
+## roberto@edt ASIX M06-ASO Curs 2019-2020
 ### ldapserver deattach 
 
 repositorio que contiene todos los archivos necesarios para generar la imagen del container 
