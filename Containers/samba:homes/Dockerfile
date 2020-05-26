@@ -1,10 +1,9 @@
 # Version: 0.0.1
-# @edt M06 2018-2019
-# SAMBA:18HOMES
+# SAMBA-HOMES
 # -------------------------------------
 FROM fedora:27
-LABEL author="@edt ASIX M06-ASO"
-LABEL description="host PAM-SAMBA 2018-2019"
+LABEL author="Roberto@edt.org Proyecto Kubernetes"
+LABEL description="PAM-Samba-homes 2018-2019"
 RUN dnf -y install procps passwd openldap-clients nss-pam-ldapd pam_mount cifs-utils samba samba-client
 RUN mkdir /opt/docker
 COPY * /opt/docker/

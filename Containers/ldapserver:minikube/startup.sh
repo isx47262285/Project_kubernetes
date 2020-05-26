@@ -1,6 +1,5 @@
 #! /bin/bash
-# @edt ASIX M06 2018-2019
-# Crear i engegar slapd amb edt.org
+# instalacion y arranque en background
 # -------------------------------------
 
 /opt/docker/install.sh && echo "Install Ok"

@@ -1,3 +1,7 @@
-### kserver kerberos
+#kserver.edt.org
+## Servidor Kerberos.
 
-## ficar el readme 
+### Descripcion:
+Servidor kerveros que validara las contraseñas de los usuarios procedentes 
+de nuestro ldap kerberizado.
+  
