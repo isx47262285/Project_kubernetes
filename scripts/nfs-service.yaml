@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfs-server
+  labels:
+    app: nfs-server
+spec:
+  type: NodePort
+  ports:
+  - port: 111
+    targetPort: 111
+    nodePort: 111
+    protocol: TCP
+    name: nfs-server
+  selector:
+    app: nfs-server
