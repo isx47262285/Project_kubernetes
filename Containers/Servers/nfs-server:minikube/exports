@@ -1,0 +1,2 @@
+/tmp/home *(rw,sync,root_squash)
+/tmp/home 192.168.0.0/24(rw,sync,root_squash)

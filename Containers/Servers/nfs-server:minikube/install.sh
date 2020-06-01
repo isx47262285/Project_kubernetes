@@ -16,6 +16,11 @@ mkdir /tmp/home/marta
 mkdir /tmp/home/jordi
 mkdir /tmp/home/admin
 
+/usr/sbin/nslcd && echo "nslcd Ok"
+/usr/sbin/nscd && echo "nscd Ok"
+
+sleep 1
+
 cp README.md /tmp/home/pere
 cp README.md /tmp/home/pau
 cp README.md /tmp/home/anna
@@ -24,6 +29,7 @@ cp README.md /tmp/home/jordi
 cp README.md /tmp/home/admin
 cp README.md /tmp/home/local01
 cp README.md /tmp/home/local02
+
 
 chown -R pere.users /tmp/home/pere
 chown -R pau.users /tmp/home/pau

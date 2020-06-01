@@ -1,0 +1,15 @@
+service echo-bis
+{	
+	disable = no
+	type = UNLISTED
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	redirect = localhost 7
+	instances = 2
+	bind = 0.0.0.0
+	port = 2007
+	user = nobody
+	instances = 5
+	per_source = 1
+}
