@@ -24,3 +24,26 @@ spec:
     name: kserver2
   selector:
     app: kserver
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kserver
+  labels:
+    app: kserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kserver
+  template:
+    metadata:
+      labels:
+        app: kserver
+    spec:
+      containers:
+      - name: kserver
+        image: robert72004/kserver:minikube
+        imagePullPolicy: Always

@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: samba-server
+  labels:
+    app: samba-server
+spec:
+  type: NodePort
+  ports:
+  - port: 445
+    targetPort: 445
+    nodePort: 445
+    protocol: TCP
+    name: samba-server0
+  - port: 139
+    targetPort: 139
+    nodePort: 139
+    protocol: TCP
+    name: samba-server1
+  selector:
+    app: samba-server
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samba-server
+  labels:
+    app: samba-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: samba-server
+  template:
+    metadata:
+      labels:
+        app: samba-server
+    spec:
+      containers:
+      - name: samba-server
+        image: robert72004/samba-server:minikube
+        imagePullPolicy: Always

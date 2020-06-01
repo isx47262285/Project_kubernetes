@@ -17,10 +17,5 @@ spec:
     nodePort: 2049
     protocol: TCP
     name: nfs-server1
-  - port: 20048
-    targetPort: 20048
-    nodePort: 20048
-    protocol: TCP
-    name: nfs-server2
   selector:
     app: nfs-server
