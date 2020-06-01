@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kserver
+  name: ldap
   labels:
-    app: kserver
+    app: ldap
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kserver
+      app: ldap
   template:
     metadata:
       labels:
-        app: kserver
+        app: ldap
     spec:
       containers:
-      - name: kserver
-        image: robert72004/kserver:minikube
+      - name: ldap
+        image: robert72004/ldapserver:minikube
         imagePullPolicy: Always

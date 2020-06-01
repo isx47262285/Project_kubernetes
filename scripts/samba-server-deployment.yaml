@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kserver
+  name: samba-server
   labels:
-    app: kserver
+    app: samba-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kserver
+      app: samba-server
   template:
     metadata:
       labels:
-        app: kserver
+        app: samba-server
     spec:
       containers:
-      - name: kserver
-        image: robert72004/kserver:minikube
+      - name: samba-server
+        image: robert72004/samba-server:minikube
         imagePullPolicy: Always

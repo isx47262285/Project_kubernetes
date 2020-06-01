@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: samba-homes
+  name: samba-server
   labels:
-    app: samba-homes
+    app: samba-server
 spec:
   type: NodePort
   ports:
@@ -11,11 +11,11 @@ spec:
     targetPort: 445
     nodePort: 445
     protocol: TCP
-    name: samba-homes0
+    name: samba-server0
   - port: 139
     targetPort: 139
     nodePort: 139
     protocol: TCP
-    name: samba-homes1
+    name: samba-server1
   selector:
-    app: samba-homes
+    app: samba-server
