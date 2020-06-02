@@ -1,12 +1,15 @@
 # Kubernetes
 ## @edt ASIX M14-PROJECTE Curs 2019-2020
 ## Roberto Altamirano
+--------------------------------------------------------------------------------------------------
 
 ¿Qué significa Kubernetes? ¿Qué significa K8S?
+
 El nombre Kubernetes proviene del griego y significa timonel o piloto.
 **K8s** es una abrevación que se obtiene al reemplazar las ocho letras “ubernete” con el número 8.
 
 ¿Qué es Kubernetes?
+
 Kubernetes fue originalmente un proyecto creado por **Google**, el cual tiene experiencia de más de 15 años gestionando contenedores.
 Ahora se trata de un proyecto de código abierto, bajo el paraguas de **Cloud Native Computing Foundation (CNCF) y la Fundación Linux**.
 
