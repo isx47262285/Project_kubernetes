@@ -10,10 +10,10 @@
 		since this file is still processed in a single pass
 		from top-to-bottom -->
 
-<debug enable="0" />
+<debug enable="2" />
 
 		<!-- Volume definitions -->
-<volume user="*" fstype="nfs" server="nfs-homes" path="%(USER)" mountpoint="~/%(USER)" />
+<volume user="*" fstype="nfs" server="nfs-server" path="/tmp/home/%(USER)" mountpoint="~/%(USER)" uid="%(USER)" gid="%(GROUP)" />
 		<!-- pam_mount parameters: General tunables -->
 
 <!--

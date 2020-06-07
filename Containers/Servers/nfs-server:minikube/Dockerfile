@@ -10,5 +10,6 @@ RUN dnf -y install procps passwd openldap-clients nss-pam-ldapd  pam_mount nfs-u
 RUN mkdir /opt/docker
 COPY * /opt/docker/
 RUN chmod +x /opt/docker/install.sh /opt/docker/startup.sh
+VOLUME /tmp/home
 WORKDIR /opt/docker
 CMD ["/opt/docker/startup.sh"]
