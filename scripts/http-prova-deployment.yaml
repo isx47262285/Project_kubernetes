@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-prova
+  labels:
+    app: http-prova
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-prova
+  template:
+    metadata:
+      labels:
+        app: http-prova
+    spec:
+      containers:
+      - name: http-prova
+        image: robert72004/http-prova:minikube
+        imagePullPolicy: Always
