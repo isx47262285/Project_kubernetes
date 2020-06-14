@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: http-prova
-        image: robert72004/net18:nethost
+        image: robert72004/http-prova:minikube

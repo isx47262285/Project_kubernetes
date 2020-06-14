@@ -91,7 +91,7 @@ Este proyecto necesita varios componentes para su simulacion.
 * Servicio SAMBA
 * Servicio NFS
 
-![](cluster vacio-1.png)
+![](cluster-vacio.png)
 
 # Esctructura del Proyecto.
 

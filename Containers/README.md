@@ -5,18 +5,18 @@
 
 Aqui distribuimos los containers a utilizar.
 
-* **Servers**
+**Servers**
 Definimos todos los servidores que vamos a utilizar.
 + LDAP
 + SAMBA
 + KERBEROS
 + NFS
 
-* **Clientes**
+**Clientes**
 Host virtualizados por Docker para realizar la simulacion.
 + host-samba
 + host-nfs
 
-* **Test**
+**Test**
 Nuestro container de pruebas.
 + http-prova

@@ -1,7 +1,7 @@
 #! /bin/bash
 #cp /opt/docker/krb5.keytab /etc/krb5.keytab
 
-echo "roberto@ K8S VERSION 2 asix curs 2019-2020" > /var/www/html/index.html
+echo "roberto@ K8S test  asix curs 2019-2020" > /var/www/html/index.html
 echo "BEnvingut al vsftpd " > /var/ftp/hola.pdf
 echo "BEnvingut al vsftpd " > /var/ftp/pub/info.pdf
 cp /opt/docker/chargen-dgram /etc/xinetd.d/

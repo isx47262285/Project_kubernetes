@@ -6,14 +6,14 @@
 ### SEGUIMIENTO DEL PROYECTO.
 
 
-* **SEMANA 1**
+**SEMANA 1**
 
 Durante la primera semana dedicamos tiempo a informarnos de la tecnologia kubernetes, utilice el recurso 
 de los tutoriales guiados proporcionado de la propia pagina de kubernetes para comprender el ecosistema.
 
 Aquirimos conocimientos de nuevos conceptos y comprendimos el concepto cluster.
 
-* **SEMANA 2**
+**SEMANA 2**
 
 Fase de descubrimiento, planifique reproducir el tutorial de Kubernetes en mi maquina fisica.
 Para desarrollar esta fase tuve que realizar todas las instalaciones basicas:
@@ -28,10 +28,11 @@ Los errores estaban relacionados con la incompatibilidades entre la version de m
 
 Lanzamiento de un primer deployment para comprender los conceptos aprendidos.
 
+
 Accedimos a la interfaz web del cluster mediante "minikube dashboard", esta interfaz te muestra toda la estructura del cluster
 y tambien de los deployments, pods y servicios operativos.
 
-* **SEMANA 3**
+**SEMANA 3**
 
 Esta semana fue un punto de inflexion importante, una vez comprendidos los conceptos de interaccion con Kubectl
 lanzamos un deployment "http-prova" (container utilizado como base de pruebas) el cual tiene corriendo diferentes servicios
@@ -64,7 +65,7 @@ minikube start --driver=virtualbox --extra-config=apiserver.service-node-port-ra
 Paramos el cluster y lo volvimos arrancar con las opciones mencionadas, lo cual nos permite que utilicemos el rango deseado.
 Ahora solo quedaba comprobar que todo funcionaba en los puertos predeterminados en cada servicio y esta prueba resulto con exito.
 
-* **SEMANA 4**
+**SEMANA 4**
 
 Durante esta semana se plasmo toda la estructura del servidor gandhi en kubernetes.
 Creamos los containers con todo lo necesario y tambien hicimos pruebas de conectividad.
