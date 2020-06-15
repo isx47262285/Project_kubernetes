@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Roberto Altamirano Martínez" />
+  <title>Kubernetes (K8S)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="style.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Kubernetes (K8S)</h1>
+  <p class="author">
+Roberto Altamirano Martínez
+  </p>
+</div>
+<div class="slide" id="TOC">
+<ul>
+<li><a href="#indice">Indice</a></li>
+<li><a href="#introducción">Introducción</a></li>
+<li><a href="#puntos-a-destacar">Puntos a destacar</a></li>
+<li><a href="#puntos-a-destacar-1">Puntos a destacar</a></li>
+<li><a href="#puntos-a-destacar-2">Puntos a destacar</a></li>
+<li><a href="#estructura-kubernetes">Estructura Kubernetes</a></li>
+<li><a href="#estructura-kubernetes-1">Estructura Kubernetes</a></li>
+<li><a href="#esctructura-del-proyecto">Esctructura del proyecto</a></li>
+<li><a href="#esctructura-del-proyecto.">Esctructura del Proyecto.</a></li>
+<li><a href="#esctructura-del-proyecto.-1">Esctructura del Proyecto.</a></li>
+<li><a href="#esctructura-del-proyecto.-2">Esctructura del Proyecto.</a></li>
+<li><a href="#pasamos-a-la-demostracion">Pasamos a la Demostracion</a></li>
+</ul>
+</div>
+<div id="indice" class="slide section level1">
+<h1>Indice</h1>
+<ul>
+<li>Introduccion</li>
+<li>Puntos a Destacar</li>
+<li>Estructura de Kubernetes</li>
+<li>Estructura del Proyecto</li>
+<li>Demostracion</li>
+</ul>
+</div>
+<div id="introducción" class="slide section level1">
+<h1>Introducción</h1>
+<p><strong>¿Qué es Kubernetes?</strong></p>
+<p>Kubernetes fue originalmente un proyecto creado por Google, el cual tiene experiencia de más de 15 años gestionando contenedores. Ahora se trata de un proyecto de código abierto, bajo el paraguas de <em>Cloud Native Computing Foundation (CNCF) y la Fundación Linux</em>.</p>
+<p><strong>¿Qué significa Kubernetes? ¿Qué significa K8S?</strong></p>
+<p>El nombre Kubernetes proviene del griego y significa timonel o piloto. Es la raíz de gobernador y de cibernética. <strong>K8s</strong> es una abreviación que se obtiene al reemplazar las ocho letras “ubernete” con el número <strong>8</strong>.</p>
+</div>
+<div id="puntos-a-destacar" class="slide section level1">
+<h1>Puntos a destacar</h1>
+<p><strong>Ventajas de usar esta tecnologia.</strong></p>
+<ul>
+<li>Orquestación de contenedores en múltiples hosts, ya que no utiliza contenedores como tal, sino que utiliza agrupaciones de contenedores, lo que se conoce como Pod.</li>
+<li>Escalado y autoescalado: en función del uso de CPU permite el escalado vertical de tus aplicaciones de manera automática o de forma manual (mediante un comando o a través de la interfaz).</li>
+<li>Permite optimizar recursos, definiendo dentro de los Pods qué recursos va a necesitar cada contenedor, como puede ser la cuota de disco duro o el límite de memoria RAM que utilice el propio contenedor.</li>
+<li>Autorreparación: en caso de fallo de un contenedor puede reiniciarlo automáticamente. Puede reemplazar o replanificar contenedores cuando un nodo muere. Y si hay contenedores que no responden a los health checks definidos por el usuario, puede pararlos.</li>
+<li>Podemos automatizar despliegues, saneamientos de contenedores, subida de versión de aplicaciones y un sinfín de cosas más.</li>
+</ul>
+</div>
+<div id="puntos-a-destacar-1" class="slide section level1">
+<h1>Puntos a destacar</h1>
+<p><strong>¿Donde se puede utilizar Kubernetes?</strong></p>
+<p>Las opciones para utilizar Kubernetes apenas tienen restricción.</p>
+<ul>
+<li>Bare Metal: podemos desplegar nuestro cluster directamente sobre máquinas físicas utilizando múltiples sistemas operativos: Fedora, CentOS, Ubuntu, etc.</li>
+<li>Virtualización On Premise: si queremos montar nuestro cluster on premise, pero con máquinas virtuales, las posibilidades crecen. Podemos utilizar Vagrant, CloudStack, Vmware, OpenStack, CoreOS, oVirt, Fedora, etc.</li>
+<li>Soluciones Cloud: Google Container Engine, Azure, IBM, Kube2Go, Kops (AWS)</li>
+</ul>
+</div>
+<div id="puntos-a-destacar-2" class="slide section level1">
+<h1>Puntos a destacar</h1>
+<p><strong>Evolucion de la tecnologia informatica</strong></p>
+<ul>
+<li>Conforme al paso del tiempo las nuevas tecnologias han evolucionado y han cambiado el mundo de la informatica pasando de:</li>
+</ul>
+<p>Servidores fisicos –&gt; Servicios Cloud</p>
+<p><img src="evolution.png" /></p>
+</div>
+<div id="estructura-kubernetes" class="slide section level1">
+<h1>Estructura Kubernetes</h1>
+<p><strong>Estructura de un Cluster</strong></p>
+<p><img src="cluster.png" /></p>
+</div>
+<div id="estructura-kubernetes-1" class="slide section level1">
+<h1>Estructura Kubernetes</h1>
+<p><strong>Conceptos de Kubernetes.</strong></p>
+<ul>
+<li>Deployment: Una implementación proporciona actualizaciones declarativas para Pods y ReplicaSets.</li>
+<li>Service: Una forma abstracta de exponer una aplicación que se ejecuta en un conjunto de Pods como un servicio de red.</li>
+<li>Pod: es la unidad de ejecución básica de una aplicación de Kubernetes, la unidad más pequeña y más simple en el modelo de objetos de Kubernetes que crea o implementa. Un Pod representa procesos que se ejecutan en suracimo.</li>
+<li>Nodo: nodo contiene los servicios necesarios para ejecutar Pods, incluye el kubelet, container runtime, kube-proxy.</li>
+<li>Master: es el responsable de mantener el estado deseado de tu clúster. Cuando interactuas con Kubernetes, como por ejemplo cuando utilizas la interfaz de línea de comandos kubectl, te estás comunicando con el master de tu clúster de Kubernetes.</li>
+</ul>
+</div>
+<div id="esctructura-del-proyecto" class="slide section level1">
+<h1>Esctructura del proyecto</h1>
+<p><strong>El proyecto</strong></p>
+<p>Este proyecto necesita varios componentes para su simulacion.</p>
+<ul>
+<li>minikube</li>
+<li>VM: VirtualBox, KVM, Docker, Hyper-V</li>
+<li>cliente: kubectl</li>
+<li>imagenes: DockerHub (por defecto) pero nos sirve cualquier imagen.</li>
+</ul>
+</div>
+<div id="esctructura-del-proyecto." class="slide section level1">
+<h1>Esctructura del Proyecto.</h1>
+<p><img src="objects.png" /></p>
+</div>
+<div id="esctructura-del-proyecto.-1" class="slide section level1">
+<h1>Esctructura del Proyecto.</h1>
+<p><strong>Esctructura de Gandhi K8S.</strong></p>
+<ul>
+<li>Servicio LDAP</li>
+<li>Servicio KRB5</li>
+<li>Servicio SAMBA</li>
+<li>Servicio NFS</li>
+</ul>
+<p><img src="cluster-vacio.png" /></p>
+</div>
+<div id="esctructura-del-proyecto.-2" class="slide section level1">
+<h1>Esctructura del Proyecto.</h1>
+<p><strong>Estructura de usuario, el alumno</strong></p>
+<p>Representa la figura de un alumno que se conecta y hace login con sus credenciales en la escuela.</p>
+<ul>
+<li>Container host-samba</li>
+<li>Container host-nfs</li>
+</ul>
+</div>
+<div id="pasamos-a-la-demostracion" class="slide section level1">
+<h1>Pasamos a la Demostracion</h1>
+<p><img src="saludos.gif" /></p>
+</div>
+</body>
+</html>

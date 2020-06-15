@@ -23,4 +23,4 @@ spec:
     protocol: TCP
     name: kserver2
   selector:
-    app: kserver
+    app: kserver.edt.org

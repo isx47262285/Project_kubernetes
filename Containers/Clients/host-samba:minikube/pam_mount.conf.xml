@@ -13,7 +13,7 @@
 <debug enable="0" />
 
 		<!-- Volume definitions -->
-<volume user="*" fstype="cifs" server="samba-homes" path="%(USER)" mountpoint="~/%(USER)" />
+<volume user="*" fstype="cifs" server="samba-server" path="%(USER)" mountpoint="~/%(USER)" />
 		<!-- pam_mount parameters: General tunables -->
 
 <!--

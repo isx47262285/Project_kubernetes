@@ -1,0 +1,49 @@
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  color: black;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 1em;
+  margin: auto;
+  max-width: 42em;
+  background-color: #76C4F5;
+}
+
+
+.author {
+  font-size: 1.2em;
+  color: blue;
+  text-align: center;
+}
+
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	font-size: 35px;
+}
+
+#Indice {
+	margin-top: 50px;
+}
+
+
+
+#Introducción {
+	margin-top: 40px;
+}
+p img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	border-radius: 8px;
+}

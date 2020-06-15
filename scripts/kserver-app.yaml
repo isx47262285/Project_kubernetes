@@ -23,25 +23,25 @@ spec:
     protocol: TCP
     name: kserver2
   selector:
-    app: kserver
+    app: kserver.edt.org
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kserver
+  name: kserver.edt.org
   labels:
-    app: kserver
+    app: kserver.edt.org
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kserver
+      app: kserver.edt.org
   template:
     metadata:
       labels:
-        app: kserver
+        app: kserver.edt.org
     spec:
       containers:
       - name: kserver
