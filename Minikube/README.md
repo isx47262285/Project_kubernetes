@@ -44,7 +44,8 @@ Con esta configuracion evitamos hacer un nat de puertos porque minikube utiliza 
 
 ```
 minikube version
-minikube status 
+minikube status
+minikube ip
 ```
 
 Minikube tiene su entorno web para poder inspecionar la estructura del cluster.
@@ -54,6 +55,9 @@ minikube dashboard
 ```
 
 ![alt cloud](https://github.com/isx47262285/Project_kubernetes/blob/master/aux/minikube-dashboard.png)
+
+![alt cloud](https://github.com/isx47262285/Project_kubernetes/blob/master/aux/ui-dashboard.png)
+
 
 ## Complementos de minikube
 
@@ -94,3 +98,11 @@ $ minikube addons enable metrics-server
 
 ```
 
+
+* Entrar en minikube
+
+```
+minikube ssh
+```
+
+Es la conexion al host que ha sido sujeto de la creacion del cluster.
