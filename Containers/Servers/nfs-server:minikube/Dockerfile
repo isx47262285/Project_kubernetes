@@ -12,4 +12,5 @@ COPY * /opt/docker/
 RUN chmod +x /opt/docker/install.sh /opt/docker/startup.sh
 VOLUME /tmp/home
 WORKDIR /opt/docker
+EXPOSE	111 2049
 CMD ["/opt/docker/startup.sh"]

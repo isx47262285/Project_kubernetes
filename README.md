@@ -22,8 +22,8 @@ Por tanto desarrollaremos el proyecto con varios servicios: ldap, kerberos, samb
 
 * Podriamos bautizar este proyecto como: **Cloud-Gandhi**.
 
-* Implementaremos los servicios basicos de **atutenticacion** de un usuario de la escuela, es decir,
-que atraves de una cuenta de usuario podemos autenticarnos con el servidor **LDAP** y obtener la confirmacion
+* Implementaremos los servicios basicos de **atutenticacion** de usuario simulando el login de la escuela, es decir,
+que atraves de una cuenta de usuario podemos autenticarnos con las credenciales en  **LDAP** obtener la confirmacion
 de las credenciales atraves del servidor **KERBEROS**.
 
 * Conseguido este primer paso, el usuario necesitara su zona de trabajo la cual sera importada por otro servicio
@@ -31,12 +31,14 @@ externo el cual estara destinado a guardar el **HOME** de los usuarios y el cont
 aceptadas las credenciales del usuario le montara  una unidad en su directorio de trabajo mediante un servidor
 **SAMBA**  o **NFS** segun la configuracion del cliente.
 
+Para simplificar la esctructrra del proyecto, hemos incluido los espacios de trabajo dentro de los servidores **SAMBA** y **NFS**.
+
 ### ESTRUCTURA 
 
 * El proyecto tendra dos partes importantes: creacion del **CLUSTER** y por otro lado  el desarrollo de los 
-**KUBELETS** basados en containers de **Docker** que contendran los servidores o servicios: **LDAP, SAMBA, KERBEROS, NFS**.
+**KUBELETS** basados en containers de **Docker** que contendran los servidores: **LDAP, SAMBA, KERBEROS, NFS**.
 
-#### Cluster
+### Cluster
 Para la creacion del **cluster** existen dos opciones utilizadas: **kubeadm**  y  **minikube**.
 Este proyecto esta basado en **minikube**, se ha optado por esta via dado que centraremos nuestros esfuerzos en el desarrollo de los
 servicios necesarios para simular a **Gandhi**.
@@ -46,7 +48,7 @@ desarrollar una gran parte de configuraciones de redes a nivel interno como DHCP
 
 * colocaremos una imagen representativa de la  estructura.
 
-![alt cloud](https://github.com/isx47262285/Project_kubernetes/blob/master/aux/container_evolution.png)
+![alt cloud](https://github.com/isx47262285/Project_kubernetes/blob/master/aux/objects.png)
 
 
 * Como hemos podido observar Kubernetes necesita de varios recursos para poderse desarrollar.
@@ -55,10 +57,10 @@ desarrollar una gran parte de configuraciones de redes a nivel interno como DHCP
 - **minikube**: el nodo master.
 - **kubectl** : sera nuestro comando para administrar nuestro cluster.
 
+
 ### Scripting 
 
 Contaremos con unas plantillas *.yaml* que nos permetiran automatizar los deployments y los servicios.
-
 
 
 ### Containers
@@ -68,14 +70,22 @@ podemos utilizar cualquier cloud que contenga una imagen, solo debemos indicar l
 
 ### MEJORAS
 
-Al utilizar un cluster como minikube hay limitaciones como por ejemplo:  administrar mas de un NODO o utilizar
-opciones como --type:LoadBalancer no soportadas en cluster alojados en maquinas de manera virtual.
+Al utilizar un cluster como minikube hay limitaciones como por ejemplo: no puede generar mas de un NODO o utilizar
+opciones como --type:LoadBalancer.
 
 Otras limitaciones tienen que ver con los virtualizadores que se usen, Docker tambien es aceptado como virtualizador
 pero a la hora de realizar pruebas, la aberturas de puertos NodePorts que por defecto son del 30000 al 32627, Docker 
-se quejaba porque no podia abrir estoy puertos por su politica interna.
+se quejaba porque no podia abrir estos puertos por su politica interna, declaraba los puertos como "FILTERED".
 
 
+### CONCLUSION.
 
+Utilizar esta tecnología para reconvertir Gandhi al concepto "cloud" es muy interesante y nos
+permite tener Gandhi disponible en cualquier parte del mundo.
+
+El concepto de un servidor Cloud y la Alta disponibilidad es la
+tecnología del presente y del futuro.
+
+A nivel personal me ha resultado interesante ademas de autodidacta.
 
 

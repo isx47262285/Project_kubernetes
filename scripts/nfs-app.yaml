@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: nfs-server
-        image: robert72004/nfs-server:minikube
+        image: robert72004/nfs-server:minikubeV2
         imagePullPolicy: Always
         securityContext:
           privileged: true
