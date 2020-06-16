@@ -113,13 +113,12 @@ $ minikube addons enable metrics-server
 minikube ssh
 ```
 
-Es la conexion al host que ha sido sujeto de la creacion del cluster.
 ---
-
+---
 
 ## ¿ Como administro mi cluster minikube?
 
-* Instalar **kubectl** 
+## Instalar **kubectl** 
 
 Es la herramienta de comunicacion en linea de comandos para desplegar y gestionar aplicaciones en Kubernetes.
 Usando kubectl, puedes inspeccionar recursos del clúster; crear, eliminar, y actualizar componentes; explorar tu nuevo clúster; y arrancar aplicaciones de ejemplo.
@@ -165,6 +164,15 @@ kubectl scale deployment http-prova --replicas=2
 ```
 kubectl set image deployments/http-prova http-prova=robert72004/http-prova:minikubeV2
 ```
+
+**Subprocesos lanzados deployment, pod o service**
+
+```
+kubectl get deployments
+kubectl get pods
+kubectl get services
+```
+
 
 **monitorizar un deployment, pod o service**
 
