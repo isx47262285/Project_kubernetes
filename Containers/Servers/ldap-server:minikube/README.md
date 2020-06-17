@@ -1,20 +1,18 @@
 # Kubernetes
-## roberto@edt ASIX M06-ASO Curs 2019-2020
-### ldapserver deattach 
+## @edt ASIX M14-PROJECTE Curs 2019-2020
+## Roberto Altamirano Martinez
+### LDAP
+------------------------------------------------------------------------
 
-repositorio que contiene todos los archivos necesarios para generar la imagen del container 
+* el servidor **LDAP**, es el encargado de almacenar las cuentas de usuario de la organizacion.
 
-#### imagen
-```
-docker build -t robert72004/ldapserver_18roberto:latest .
-```
+* Para el desarrollo de esta servidor necesitamos:  **openldap-clients** y **openldap-servers**
 
-Servidor ldap amb edt.org, amb usuaris i grups, RDN=uid
-Exercici per practicar tots els conceptes treballats.
+* La base de datos esta definida por una **organization** unit.
 
-S'han afegit els grups que són posixGroup i identifiquen als membres del group amb l'atribut memberUid.
+Hemos añadido grupos que son posixGroup e indentifican los miembros por el atributo memberUid.
 
-#### Exemple de dades .ldif
+#### Ejemplo de entradas .ldif
 
 Entitat **grups** per acollir els grups:
 ```
@@ -39,8 +37,3 @@ objectclass: posixGroup
 ```
 
 
-#### Execució
-
-```
-$ docker run --rm --name ldap -h ldap --net sambanet -d robert72004/ldapserver_18roberto
-```

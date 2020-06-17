@@ -4,11 +4,19 @@
 ### Clientes
 ---
 
-En este apartado encontramos los dos clientes para nuestra simulacion:
 
-**host-samba**
+En este apartado encontramos los clientes para nuestra simulacion basada en containers de Docker.
+
+Estos clientes estan configurados de manera que envian sus peticiones a la ip de minikube, 192.168.99.102, que el es host que desplega la estructura de Gandhi K8S.
+
+Por tanto, si se desea reutilizar esta configuracion se debe cambiar la ip contra la que apuntan.
+
+Definimos dos tipos de HOST:
+
+* **host-samba**
 
 Nuestro cliente que utilizara un entorno de trabajo montado en una unidad SAMBA.
+
 Ejecucion:
 
 ```
@@ -16,8 +24,10 @@ docker run --rm --name host-samba -h host-samba --privileged -it robert72004/hos
 ```
 
 
-**host-nfs**
+* **host-nfs**
+
 Nuestro cliente que utilizara un entorno de trabajo montado en una unidad NFS.
+
 Ejecucion:
 
 ```

@@ -4,11 +4,15 @@
 ## SCRIPTS
 
 ---
-Este apartado contiene los ficheros de configuracion de los pods para lanzar los servidores y los servicios.
+Este apartado contiene los ficheros de configuracion de los pods para lanzar los servidores y un script bash de arranque general.
+
+**startup.sh** --> arranque de los servidores k8s.
+ 
+
+### Ficheros de Configuracion .yaml
 
 Cabe destacar que los ficheros .yaml son la manera mas completa de configuracion de los deployments como de los services, sin embargo
 existe su version en *command line* pero no la utilizamos porque no se pueden aplicar todas las opciones.
-
 
 * Configuracion de un **deployment**
 El fichero *xxxx-deployment.yaml* contiene configuracion del deployment en el cual especificamos todas las caracteristicas de los pods.

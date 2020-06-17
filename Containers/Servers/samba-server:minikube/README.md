@@ -1,13 +1,22 @@
-# samba:18homes
+# Kubernetes
+## @edt ASIX M14-PROJECTE Curs 2019-2020
+## Roberto Altamirano Martinez
+### SAMBA
 
-## roberto@edt asix m06 curs 2018-2019
+------------------------------------------------------------------------
+Servidor samba que contiene como shares los homes de los usuarios, para simplificar el proyecto
+hemos incluido los homes de los usuarios en este contenedor.
 
-### descripcion:
-> repositorio de un servidor samba que contiene como shares los homes de los usuarios
 
-### configuracion 
+## SERVIDOR SAMBA
 
-* instalacion de los paquetes cifs-utils samba samba-client
+* instalacion de los paquetes cifs-utils samba samba-client para desarrollar este servicio.
+
+* Este servidor tiene la funcion de compartir los share que son los homes de los usuarios via **cifs**.
+
+
+### Configuracion 
+
 * configuracion de los homes (share) en el smb.conf
 
 ```
@@ -41,13 +50,15 @@ echo -e "pere\npere" | smbpasswd -a pere
 echo -e "pau\npau" | smbpasswd -a pau
 ```
 
-* configuracion de los ficheros nsld.conf y nsswitch.conf para tener conectividad  con el servidor ldap y hacer getent passwd para comprovarlo.
+* configuracion de los ficheros nsld.conf y nsswitch.conf para tener conectividad  con el servidor ldap y hacer getent passwd para comprobarlo.
 
-#### ejecucion
+
+* Este servidor esta configurado para funcionar en **detach**.
 
 ```
-docker run --rm --name samba -h samba --network sambanet -it robert72004/samba:18homes
-```
+/usr/sbin/smbd && echo "smb Ok" 
+/usr/sbin/nmbd && echo "nmb  Ok" 
 
+```
 
 
