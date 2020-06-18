@@ -102,4 +102,123 @@ echo "192.168.99.102 ldap kserver.edt.org samba-server nfs-server" >> /etc/hosts
 
 ### Comprobacion
 
+```
+hanging password for user local01.
+passwd: all authentication tokens updated successfully.
+Changing password for user local02.
+passwd: all authentication tokens updated successfully.
+Changing password for user local03.
+passwd: all authentication tokens updated successfully.
+Install Ok
+nslcd Ok
+nscd: 73 monitoring file `/etc/passwd` (1)
+nscd: 73 monitoring directory `/etc` (2)
+nscd: 73 monitoring file `/etc/group` (3)
+nscd: 73 monitoring directory `/etc` (2)
+nscd: 73 monitoring file `/etc/hosts` (4)
+nscd: 73 monitoring directory `/etc` (2)
+nscd: 73 monitoring file `/etc/resolv.conf` (5)
+nscd: 73 monitoring directory `/etc` (2)
+nscd: 73 monitoring file `/etc/services` (6)
+nscd: 73 monitoring directory `/etc` (2)
+nscd: 73 disabled inotify-based monitoring for file `/etc/netgroup': No such file or directory
+nscd: 73 stat failed for file `/etc/netgroup'; will try again later: No such file or directory
+nscd Ok
+rpcbind Ok
+rpc.stad Ok
+rpc.nfsd Ok
+[root@host-nfs docker]# 
+```
+
+**login del usuario**
+
+```
+ser01@host-nfs ~]$ su - pere
+Password: 
+(pam_mount.c:365): pam_mount 2.15: entering auth stage
+Creating directory '/tmp/home/pere'.
+(pam_mount.c:568): pam_mount 2.15: entering session stage
+(mount.c:782): Could not get realpath of /tmp/home/pere/pere: No such file or directory
+(mount.c:263): Mount info: globalconf, user=pere <volume fstype="nfs" server="nfs-server" path="/tmp/home/pere" mountpoint="/tmp/home/pere/pere" cipher="(null)" fskeypath="(null)" fskeycipher="(null)" fskeyhash="(null)" options="" /> fstab=0 ssh=0
+(mount.c:305): mkmountpoint: checking /tmp
+(mount.c:305): mkmountpoint: checking /tmp/home
+(mount.c:305): mkmountpoint: checking /tmp/home/pere
+(mount.c:305): mkmountpoint: checking /tmp/home/pere/pere
+(mount.c:330): mkdir[5001] /tmp/home/pere/pere
+(mount.c:660): Password will be sent to helper as-is.
+command: 'mount' '-tnfs' 'nfs-server:/tmp/home/pere' '/tmp/home/pere/pere' 
+...
+
+(mount.c:554): 717 762 0:70 / /proc/fs/nfsd rw,relatime - nfsd nfsd rw
+(pam_mount.c:522): mount of /tmp/home/pere failed
+command: 'pmvarrun' '-u' 'pere' '-o' '1' 
+(pmvarrun.c:303): creating /run/pam_mount(pmvarrun.c:254): parsed count value 0
+(pam_mount.c:441): pmvarrun says login count is 1
+(pam_mount.c:660): done opening session (ret=0)
+
+[pere@host-nfs ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         118G   36G   77G  32% /
+tmpfs           7.8G     0  7.8G   0% /dev
+tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+/dev/sda5       118G   36G   77G  32% /etc/hosts
+shm              64M     0   64M   0% /dev/shm
+
+```
+
+El mount de su home no se produce, comprobamos si esta exportando el recurso:
+
+```
+[root@host-nfs docker]# showmount -e 192.168.99.102
+Export list for 192.168.99.102:
+[root@host-nfs docker]# ^C
+```
+
+Desde nuestra maquina local:
+
+```
+[roberto@localhost nfs-server:minikube]$ showmount -e 192.168.99.102
+Export list for 192.168.99.102:
+```
+
+## comprobacion del POD NFS-SERVER
+```
+[root@nfs-server-56b85444b-vm8r5 docker]# exportfs
+/tmp/home     	192.168.0.0/24
+/tmp/home     	<world>
+```
+
+comprobamos los permisos en el pod
+
+```
+[root@nfs-server-56b85444b-vm8r5 docker]# ls /mnt
+[root@nfs-server-56b85444b-vm8r5 docker]# ll /tmp/home/  
+total 32
+drwxr-xr-x 2 admin wheel   4096 Jun 18 07:46 admin
+drwxr-xr-x 2 anna  alumnes 4096 Jun 18 07:46 anna
+drwxr-xr-x 2 jordi users   4096 Jun 18 07:46 jordi
+-rw-r--r-- 1 root  root      71 Jun 18 07:46 local01
+-rw-r--r-- 1 root  root      71 Jun 18 07:46 local02
+drwxr-xr-x 2 marta alumnes 4096 Jun 18 07:46 marta
+drwxr-xr-x 2 pau   users   4096 Jun 18 07:46 pau
+drwxr-xr-x 2 pere  users   4096 Jun 18 07:46 pere
+```
+
+# Comprobacion interna de minikube
+Accedemos a Minikube via ssh y realizamos la prueba de montaje manual para comprobar la exportacion del Deployment.
+Averiguamos la ip del docker que esta corriendo dentro de minikube.
+
+```
+$ su -
+# mount -t nfs 172.17.0.10:/tmp/home /mnt
+# ls /mnt
+admin  anna  jordi  local01  local02  marta  pau  pere
+```
+
+# Conclusion.
+
+Se realizo la prueba como un Container de Docer en nuestra maquina y la exportacion se produce sin problemas.
+por tanto es una limitacion de minikube que nos corta la comunicacion en lo que a exportacion de recursos se refiere.
+
+
 

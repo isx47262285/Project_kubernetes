@@ -73,9 +73,68 @@ El cliente puede utilizar el fichero raíz y NFS LOOKUP para navegar por la estr
 /usr/sbin/rpc.mountd -F
 ```
 
+### Comprobacion del servidor
+
+```
+[root@host-nfs docker]# showmount -e 192.168.99.102
+Export list for 192.168.99.102:
+[root@host-nfs docker]# ^C
+```
+
+Desde nuestra maquina local:
+
+```
+[roberto@localhost nfs-server:minikube]$ showmount -e 192.168.99.102
+Export list for 192.168.99.102:
+```
+
+## comprobacion del POD NFS-SERVER
+
+```
+[root@nfs-server-56b85444b-vm8r5 docker]# exportfs
+/tmp/home     	192.168.0.0/24
+/tmp/home     	<world>
+```
+
+comprobamos los permisos en el pod
+
+```
+[root@nfs-server-56b85444b-vm8r5 docker]# ls /mnt
+[root@nfs-server-56b85444b-vm8r5 docker]# ll /tmp/home/  
+total 32
+drwxr-xr-x 2 admin wheel   4096 Jun 18 07:46 admin
+drwxr-xr-x 2 anna  alumnes 4096 Jun 18 07:46 anna
+drwxr-xr-x 2 jordi users   4096 Jun 18 07:46 jordi
+-rw-r--r-- 1 root  root      71 Jun 18 07:46 local01
+-rw-r--r-- 1 root  root      71 Jun 18 07:46 local02
+drwxr-xr-x 2 marta alumnes 4096 Jun 18 07:46 marta
+drwxr-xr-x 2 pau   users   4096 Jun 18 07:46 pau
+drwxr-xr-x 2 pere  users   4096 Jun 18 07:46 pere
+```
+
+# Comprobacion interna de minikube
+Accedemos a Minikube via ssh y realizamos la prueba de montaje manual para comprobar la exportacion del Deployment.
+Averiguamos la ip del docker que esta corriendo dentro de minikube.
+
+```
+$ su -
+# mount -t nfs 172.17.0.10:/tmp/home /mnt
+# ls /mnt
+admin  anna  jordi  local01  local02  marta  pau  pere
+```
+
+La exportacion se esta realizando correctamente dentro del cluster pero de cara al exterior no esta funcionando.
+
+```
+# showmount -e 172.17.0.10
+Export list for 172.17.0.10:
+/tmp/home (everyone)
+```
+
+
 ### Problemas encontrados
 
-Descubrimos que en el desarrollo de este servidor, la exportación a nivel de Container Docker se produce pero cuando este container es la imagen de un subproceso de minikube la exportacion no se realiza.
+Descubrimos que en el desarrollo de este servidor, la exportación a nivel de Container Docker se produce pero cuando este container es la imagen de un subproceso de minikube la exportacion no se realiza al exterior del cluster.
 
 En un primer momento se reportaron errores de permisos pero esto fue solventado aplicando los privilegios al deploymente en minikube.
 Cuando esto estaba resuelto durante la comprobación del usuario nos indica que en el montaje del HOME no existe el directorio marcado en la ruta.
