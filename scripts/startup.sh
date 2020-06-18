@@ -19,7 +19,7 @@ echo -e "starting Servers (k8s) \n"
 
 # aplicamos el arranque de nuestros pods 
 
-kubectl create -f ldapserver-app.yaml
+kubectl create -f ldap-app.yaml
 echo -e "\n ------------ \n"
 sleep 10
 
@@ -30,6 +30,7 @@ echo -e "\n ------------ \n"
 kubectl create -f samba-app.yaml
 echo -e "\n ------------ \n"
 
+sleep 10
 
 kubectl create -f nfs-app.yaml
 
