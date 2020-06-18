@@ -2,8 +2,9 @@
 ## @edt ASIX M14-PROJECTE Curs 2019-2020
 ## Roberto Altamirano Martinez
 ### Containers
+---
 
-Aqui distribuimos los containers a utilizar.
+Este apartado contine los containers a utilizar.
 
 **Servers**
 Definimos todos los servidores que vamos a utilizar.

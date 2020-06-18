@@ -1,13 +1,13 @@
 # KUBERNETES
 ## @edt ASIX M14-PROJECTE Curs 2019-2020
-## Roberto Altamirano Martínez
+## Roberto Altamirano Martinez
 ## MINIKUBE
 ---
 
 ## ¿Que es Minikube?
 
 Minikube es una herramienta que administra maquinas virtuales en donde corre un cluster o mejor dicho una instancia de Kubernetes en un solo nodo.
-Sin embargo Minikube se apoya de un hypervisor, el cual por default es VirtualBox pero no es la única opción, lo cual veremos mas adelante.
+Sin embargo Minikube se apoya de un hypervisor, el cual por default es VirtualBox pero no es la unica opcion, lo cual veremos mas adelante.
 
 Entonces Minikube nos ayuda a correr Kubernetes en un simple nodo en nuestra maquina.
 
@@ -15,7 +15,7 @@ Entonces Minikube nos ayuda a correr Kubernetes en un simple nodo en nuestra maq
 
 * Hypervisor
 
-Verificar que tu ambiente de desarrollo soporte virtualización y un hypervisor instalado.
+Verificar que tu ambiente de desarrollo soporte virtualizacion y un hypervisor instalado.
 Minikube suporta varias opciones:
 
 - VirtualBox por default
@@ -39,14 +39,14 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 minikube start --driver=virtualbox --extra-config=apiserver.service-node-port-range=7-30000
 ```
 
-utilizamos estas opciones porque así nos permite utilizar un rango de puertos útiles para nuestro proyecto.
-Con esta configuración evitamos hacer un nat de puertos porque minikube utiliza un rango por defecto del 30000-32767
+utilizamos estas opciones porque asi nos permite utilizar un rango de puertos utiles para nuestro proyecto.
+Con esta configuracion evitamos hacer un nat de puertos porque minikube utiliza un rango por defecto del 30000-32767
 
-## Inspeccionar minikube
+## Inspecionar minikube
 
-Podemos realizar una serie de comandos que nos ayudara a verificar las características de nuestro nodo, como por ejemplo: estado, versión, ip, etc.
+Podemos realizar una serie de comandos que nos ayudara a verificar las caracteristicas de nuestro nodo, como por ejemplo: estado, version, ip, etc.
 
-A continuación detallaremos alguna ordenes para inspeccionar nuestro cluster.
+A continuacion detallaremos alguna ordenes para inspeccionar nuestro cluster.
 
 ```
 minikube version
@@ -55,7 +55,7 @@ minikube ip
 ```
 ---
 
-Minikube tiene su entorno web para poder inspeccionar la estructura del cluster.
+Minikube tiene su entorno web para poder inspecionar la estructura del cluster.
 
 ```
 minikube dashboard
@@ -109,7 +109,7 @@ $ minikube addons enable metrics-server
 
 * Entrar en minikube
 
-Una conexión ssh habilitada para entrar en la maquina de minikube y podamos interactuar con ella.
+Una conexion ssh habilitada para entrar en la maquina de minikube y podamos interactuar con ella.
 
 ```
 minikube ssh
@@ -121,7 +121,7 @@ minikube ssh
 
 ## Instalar **kubectl** 
 
-Es la herramienta de comunicación en linea de comandos para desplegar y gestionar aplicaciones en Kubernetes.
+Es la herramienta de comunicacion en linea de comandos para desplegar y gestionar aplicaciones en Kubernetes.
 Usando kubectl, puedes inspeccionar recursos del clúster; crear, eliminar, y actualizar componentes; explorar tu nuevo clúster; y arrancar aplicaciones de ejemplo.
 
 

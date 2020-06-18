@@ -1,11 +1,11 @@
-# Índice
+# Indice
 
-* Introducción
+* Introduccion
 * Puntos a Destacar
 * Estructura de Kubernetes
 * Estructura del Proyecto
 * El Cluster
-* Demostración
+* Demostracion
 
 # Introducción
 
@@ -21,10 +21,10 @@ Es la raíz de gobernador y de cibernética.
 **K8s** es una abreviación que se obtiene al reemplazar las ocho letras “ubernete” con el número **8**.
 
 # Puntos a destacar
-**Ventajas de usar esta tecnología.**
+**Ventajas de usar esta tecnologia.**
 
 * Orquestación de contenedores en múltiples hosts, ya que no utiliza contenedores como tal, sino que utiliza agrupaciones de contenedores, lo que se conoce como Pod.
-* Escalado y auto-escalado: en función del uso de CPU permite el escalado vertical de tus aplicaciones de manera automática o de forma manual.
+* Escalado y autoescalado: en función del uso de CPU permite el escalado vertical de tus aplicaciones de manera automática o de forma manual.
 * Permite optimizar recursos, definiendo dentro de los Pods qué recursos va a necesitar cada contenedor, como puede ser la cuota de disco duro o el límite de memoria RAM que utilice el propio contenedor.
 * Autorreparación: en caso de fallo de un contenedor puede reiniciarlo automáticamente. Puede reemplazar o replanificar contenedores cuando un nodo muere.
 * Podemos automatizar despliegues, saneamientos de contenedores, subida de versión de aplicaciones y un sinfín de cosas más.
@@ -34,17 +34,17 @@ Es la raíz de gobernador y de cibernética.
 
 Las opciones para utilizar Kubernetes apenas tienen restricción.
 
-* **Bare Metal**: podemos desplegar nuestro cluster directamente sobre máquinas físicas utilizando múltiples sistemas operativos: Fedora, CentOS, Ubuntu, etc.
-* **Virtualización On Premise**: si queremos montar nuestro cluster on premise, pero con máquinas virtuales, las posibilidades crecen. Podemos utilizar Vagrant, CloudStack, Vmware, OpenStack, CoreOS, oVirt, Fedora, etc.
-* **Soluciones Cloud**: Google Container Engine, Azure, IBM, Kube2Go, Kops (AWS)
+* Bare Metal: podemos desplegar nuestro cluster directamente sobre máquinas físicas utilizando múltiples sistemas operativos: Fedora, CentOS, Ubuntu, etc.
+* Virtualización On Premise: si queremos montar nuestro cluster on premise, pero con máquinas virtuales, las posibilidades crecen. Podemos utilizar Vagrant, CloudStack, Vmware, OpenStack, CoreOS, oVirt, Fedora, etc.
+* Soluciones Cloud: Google Container Engine, Azure, IBM, Kube2Go, Kops (AWS)
 
 # Puntos a destacar
 
-**Evolución de la tecnología informática**
+**Evolucion de la tecnologia informatica**
 
-* Conforme al paso del tiempo las nuevas tecnologías han evolucionado y han cambiado el mundo de la informática pasando de:
+* Conforme al paso del tiempo las nuevas tecnologias han evolucionado y han cambiado el mundo de la informatica pasando de:
 
-Servidores físicos --> Servicios Cloud
+Servidores fisicos --> Servicios Cloud
 
 ![](evolution.png)
 
@@ -59,11 +59,11 @@ Servidores físicos --> Servicios Cloud
 
 **Conceptos de Kubernetes.**
 
-* **Deployment**: Una implementación proporciona actualizaciones declarativas para Pods y ReplicaSets.
-* **Service**: Una forma abstracta de exponer una aplicación que se ejecuta en un conjunto de Pods como un servicio de red.
-* **Pod**: es la unidad de ejecución básica de una aplicación de Kubernetes, la unidad más pequeña y más simple en el modelo de objetos de Kubernetes que crea o implementa. Un Pod representa procesos que se ejecutan en su racimo.
-* **Nodo**: nodo contiene los servicios necesarios para ejecutar Pods, incluye el kubelet, container runtime, kube-proxy.
-* **Master**: es el responsable de mantener el estado deseado de tu clúster. Cuando interactúas con Kubernetes, por ejemplo: la línea de comandos kubectl, es la comunicación directa con el master de tu clúster de Kubernetes.
+* Deployment: Una implementación proporciona actualizaciones declarativas para Pods y ReplicaSets.
+* Service: Una forma abstracta de exponer una aplicación que se ejecuta en un conjunto de Pods como un servicio de red.
+* Pod: es la unidad de ejecución básica de una aplicación de Kubernetes, la unidad más pequeña y más simple en el modelo de objetos de Kubernetes que crea o implementa. Un Pod representa procesos que se ejecutan en suracimo.
+* Nodo: nodo contiene los servicios necesarios para ejecutar Pods, incluye el kubelet, container runtime, kube-proxy.
+* Master: es el responsable de mantener el estado deseado de tu clúster. Cuando interactuas con Kubernetes, por ejemplo: la línea de comandos kubectl, es la comunicacion directa con el master de tu clúster de Kubernetes.
 
 
 
@@ -71,12 +71,12 @@ Servidores físicos --> Servicios Cloud
 
 **El proyecto**
 
-Este proyecto necesita varios componentes para su simulación.
+Este proyecto necesita varios componentes para su simulacion.
 
-* **Minikube**: Cluster de Kubernetes.
-* **Hypervisor**: VirtualBox, KVM, Docker, Hyper-V, etc
-* **Kubectl**: linea de comandos cliente.
-* **imagenes**: Biblioteca DockerHub (por defecto), pero nos sirve cualquier imagen.
+* Minikube: Cluster de Kubernetes.
+* Hypervisor: VirtualBox, KVM, Docker, Hyper-V, etc
+* Kubectl: linea de comandos cliente.
+* imagenes: Biblioteca DockerHub (por defecto), pero nos sirve cualquier imagen.
 
 # Esctructura del Proyecto.
 
@@ -87,6 +87,8 @@ Este proyecto necesita varios componentes para su simulación.
 
 **Esctructura de Gandhi K8S.**
 
+Para el desarrollo del proyecto, reproduciremos los siguentes servidores y clientes.
+
 **Servers**
 
 * Servicio LDAP
@@ -96,22 +98,22 @@ Este proyecto necesita varios componentes para su simulación.
 
 ![](cluster-vacio.png)
 
-# Estructura del Proyecto.
+# Esctructura del Proyecto.
 
 **Estructura del Host**
 
-Utilizaremos dos containers Docker para simular un host que hará la conexión con Gandhi K8S
+Utilizaremos dos containers Docker para simular un host que hara la conexion con Gandhi K8S
 y validara un usuario de la escuela con sus credenciales.
 
 Tenemos dos versiones de los clientes:
 
-* Container **host-samba**
+* Container host-samba
 
-	Responsable de montar la zona de trabajo (home) vía **cifs**.
+	Responsable de montar la zona de trabajo (home) via **cifs**.
 	
-* Container **host-nfs**
+* Container host-nfs
 
-	Responsable de montar la zona de trabajo (home) vía **nfs**.
+	Responsable de montar la zona de trabajo (home) via **nfs**.
 	
 
 # El cluster
@@ -134,7 +136,7 @@ Nos permite abrir un rango de puertos diferente al que usa por defecto minikube.
 
 # El Cluster
 
-**¿ Que puedo hacer en minikube ?**
+**¿ Que puedeo hacer en minikube ?**
 
 Ordenes para inspeccionar/interactuar con  nuestro cluster.
 
@@ -148,7 +150,7 @@ minikube ssh
 
 # El Cluster
 
-Minikube tiene su entorno web para poder inspeccionar la estructura del cluster.
+Minikube tiene su entorno web para poder inspecionar la estructura del cluster.
 
 ```
 minikube dashboard
@@ -203,6 +205,6 @@ kubectl exec -it http-prova /bin/bash
 ```
 
 
-# Pasamos a la Demostración
+# Pasamos a la Demostracion
 
 ![](saludos.gif)

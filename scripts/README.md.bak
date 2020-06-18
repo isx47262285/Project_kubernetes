@@ -1,21 +1,21 @@
 # KUBERNETES
 ## @edt ASIX M14-PROJECTE Curs 2019-2020
-## Roberto Altamirano Martínez
+## Roberto Altamirano Martinez
 ## SCRIPTS
 ------------------------------------------------------------------------
 
-Este apartado contiene los ficheros de configuración de los pods para lanzar los servidores y un script bash de arranque general.
+Este apartado contiene los ficheros de configuracion de los pods para lanzar los servidores y un script bash de arranque general.
 
 **startup.sh** --> arranque de los servidores k8s.
  
 
-### Ficheros de Configuración .yaml
+### Ficheros de Configuracion .yaml
 
-Cabe destacar que los ficheros .yaml son la manera mas completa de configuración de los deployments como de los services, sin embargo
-existe su versión en *command line* pero no la utilizamos porque no se pueden aplicar todas las opciones.
+Cabe destacar que los ficheros .yaml son la manera mas completa de configuracion de los deployments como de los services, sin embargo
+existe su version en *command line* pero no la utilizamos porque no se pueden aplicar todas las opciones.
 
-* Configuración de un **deployment**
-El fichero *xxxx-deployment.yaml* contiene configuración del deployment en el cual especificamos todas las características de los pods.
+* Configuracion de un **deployment**
+El fichero *xxxx-deployment.yaml* contiene configuracion del deployment en el cual especificamos todas las caracteristicas de los pods.
 
 **Lanzamiento completo**
 ```
@@ -55,10 +55,10 @@ spec:
 ```
 
 
-* Configuración de un **servicio**
+* Configuracion de un **servicio**
 
-El fichero *xxxx-service.yaml* contiene la  configuración del servicio al cual asociamos un deployment, en este fichero se especifica 
-los puertos exportados y el NodePort que es nuestro puerto de conexión.
+El fichero *xxxx-service.yaml* contiene la  configuracion del servicio al cual asociamos un deployment, en este fichero se especifica 
+los puertos exportados y el NodePort que es nuestro puerto de conexion.
 
 
 **Lanzamiento completo**
@@ -99,10 +99,10 @@ spec:
 ```
 ---
 
-* Configuración del servicio y del deployment en un mismo fichero .yaml
+* Configuracion del servicio y del deployment en un mismo fichero .yaml
 
 
-El fichero *xxxx-app.yaml* contiene la  configuración que conjunta las dos partes importantes de un servidor.
+El fichero *xxxx-app.yaml* contiene la  configuracion que conjunta las dos partes importantes de un servidor.
 
 + Deployment.
 + Service.

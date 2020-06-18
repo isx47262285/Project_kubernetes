@@ -8,10 +8,14 @@ if [ $? -gt 0 ]
 then
   echo "FATAL: minikube not running"
   echo "HELP: exec: "minikube start [options..]" "
+  echo "TRY: minikube start --driver=virtualbox --extra-config=apiserver.service-node-port-range=7-30000"
   exit 1
 fi
 
-echo "minikube is running"
+echo -e "Minikube is running"
+
+echo -e "starting Servers (k8s) \n"
+
 
 # aplicamos el arranque de nuestros pods 
 

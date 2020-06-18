@@ -30,7 +30,7 @@ Roberto Altamirano Martínez
 </div>
 <div class="slide" id="TOC">
 <ul>
-<li><a href="#indice">Indice</a></li>
+<li><a href="#índice">Índice</a></li>
 <li><a href="#introducción">Introducción</a></li>
 <li><a href="#puntos-a-destacar">Puntos a destacar</a></li>
 <li><a href="#puntos-a-destacar-1">Puntos a destacar</a></li>
@@ -40,18 +40,25 @@ Roberto Altamirano Martínez
 <li><a href="#esctructura-del-proyecto">Esctructura del proyecto</a></li>
 <li><a href="#esctructura-del-proyecto.">Esctructura del Proyecto.</a></li>
 <li><a href="#esctructura-del-proyecto.-1">Esctructura del Proyecto.</a></li>
-<li><a href="#esctructura-del-proyecto.-2">Esctructura del Proyecto.</a></li>
-<li><a href="#pasamos-a-la-demostracion">Pasamos a la Demostracion</a></li>
+<li><a href="#estructura-del-proyecto.">Estructura del Proyecto.</a></li>
+<li><a href="#el-cluster">El cluster</a></li>
+<li><a href="#el-cluster-1">El Cluster</a></li>
+<li><a href="#el-cluster-2">El Cluster</a></li>
+<li><a href="#el-cluster-3">El Cluster</a></li>
+<li><a href="#el-cluster-4">El Cluster</a></li>
+<li><a href="#el-cluster-5">El Cluster</a></li>
+<li><a href="#pasamos-a-la-demostración">Pasamos a la Demostración</a></li>
 </ul>
 </div>
-<div id="indice" class="slide section level1">
-<h1>Indice</h1>
+<div id="índice" class="slide section level1">
+<h1>Índice</h1>
 <ul>
-<li>Introduccion</li>
+<li>Introducción</li>
 <li>Puntos a Destacar</li>
 <li>Estructura de Kubernetes</li>
 <li>Estructura del Proyecto</li>
-<li>Demostracion</li>
+<li>El Cluster</li>
+<li>Demostración</li>
 </ul>
 </div>
 <div id="introducción" class="slide section level1">
@@ -63,12 +70,12 @@ Roberto Altamirano Martínez
 </div>
 <div id="puntos-a-destacar" class="slide section level1">
 <h1>Puntos a destacar</h1>
-<p><strong>Ventajas de usar esta tecnologia.</strong></p>
+<p><strong>Ventajas de usar esta tecnología.</strong></p>
 <ul>
 <li>Orquestación de contenedores en múltiples hosts, ya que no utiliza contenedores como tal, sino que utiliza agrupaciones de contenedores, lo que se conoce como Pod.</li>
-<li>Escalado y autoescalado: en función del uso de CPU permite el escalado vertical de tus aplicaciones de manera automática o de forma manual (mediante un comando o a través de la interfaz).</li>
+<li>Escalado y auto-escalado: en función del uso de CPU permite el escalado vertical de tus aplicaciones de manera automática o de forma manual.</li>
 <li>Permite optimizar recursos, definiendo dentro de los Pods qué recursos va a necesitar cada contenedor, como puede ser la cuota de disco duro o el límite de memoria RAM que utilice el propio contenedor.</li>
-<li>Autorreparación: en caso de fallo de un contenedor puede reiniciarlo automáticamente. Puede reemplazar o replanificar contenedores cuando un nodo muere. Y si hay contenedores que no responden a los health checks definidos por el usuario, puede pararlos.</li>
+<li>Autorreparación: en caso de fallo de un contenedor puede reiniciarlo automáticamente. Puede reemplazar o replanificar contenedores cuando un nodo muere.</li>
 <li>Podemos automatizar despliegues, saneamientos de contenedores, subida de versión de aplicaciones y un sinfín de cosas más.</li>
 </ul>
 </div>
@@ -77,18 +84,18 @@ Roberto Altamirano Martínez
 <p><strong>¿Donde se puede utilizar Kubernetes?</strong></p>
 <p>Las opciones para utilizar Kubernetes apenas tienen restricción.</p>
 <ul>
-<li>Bare Metal: podemos desplegar nuestro cluster directamente sobre máquinas físicas utilizando múltiples sistemas operativos: Fedora, CentOS, Ubuntu, etc.</li>
-<li>Virtualización On Premise: si queremos montar nuestro cluster on premise, pero con máquinas virtuales, las posibilidades crecen. Podemos utilizar Vagrant, CloudStack, Vmware, OpenStack, CoreOS, oVirt, Fedora, etc.</li>
-<li>Soluciones Cloud: Google Container Engine, Azure, IBM, Kube2Go, Kops (AWS)</li>
+<li><strong>Bare Metal</strong>: podemos desplegar nuestro cluster directamente sobre máquinas físicas utilizando múltiples sistemas operativos: Fedora, CentOS, Ubuntu, etc.</li>
+<li><strong>Virtualización On Premise</strong>: si queremos montar nuestro cluster on premise, pero con máquinas virtuales, las posibilidades crecen. Podemos utilizar Vagrant, CloudStack, Vmware, OpenStack, CoreOS, oVirt, Fedora, etc.</li>
+<li><strong>Soluciones Cloud</strong>: Google Container Engine, Azure, IBM, Kube2Go, Kops (AWS)</li>
 </ul>
 </div>
 <div id="puntos-a-destacar-2" class="slide section level1">
 <h1>Puntos a destacar</h1>
-<p><strong>Evolucion de la tecnologia informatica</strong></p>
+<p><strong>Evolución de la tecnología informática</strong></p>
 <ul>
-<li>Conforme al paso del tiempo las nuevas tecnologias han evolucionado y han cambiado el mundo de la informatica pasando de:</li>
+<li>Conforme al paso del tiempo las nuevas tecnologías han evolucionado y han cambiado el mundo de la informática pasando de:</li>
 </ul>
-<p>Servidores fisicos –&gt; Servicios Cloud</p>
+<p>Servidores físicos –&gt; Servicios Cloud</p>
 <p><img src="evolution.png" /></p>
 </div>
 <div id="estructura-kubernetes" class="slide section level1">
@@ -100,22 +107,22 @@ Roberto Altamirano Martínez
 <h1>Estructura Kubernetes</h1>
 <p><strong>Conceptos de Kubernetes.</strong></p>
 <ul>
-<li>Deployment: Una implementación proporciona actualizaciones declarativas para Pods y ReplicaSets.</li>
-<li>Service: Una forma abstracta de exponer una aplicación que se ejecuta en un conjunto de Pods como un servicio de red.</li>
-<li>Pod: es la unidad de ejecución básica de una aplicación de Kubernetes, la unidad más pequeña y más simple en el modelo de objetos de Kubernetes que crea o implementa. Un Pod representa procesos que se ejecutan en suracimo.</li>
-<li>Nodo: nodo contiene los servicios necesarios para ejecutar Pods, incluye el kubelet, container runtime, kube-proxy.</li>
-<li>Master: es el responsable de mantener el estado deseado de tu clúster. Cuando interactuas con Kubernetes, como por ejemplo cuando utilizas la interfaz de línea de comandos kubectl, te estás comunicando con el master de tu clúster de Kubernetes.</li>
+<li><strong>Deployment</strong>: Una implementación proporciona actualizaciones declarativas para Pods y ReplicaSets.</li>
+<li><strong>Service</strong>: Una forma abstracta de exponer una aplicación que se ejecuta en un conjunto de Pods como un servicio de red.</li>
+<li><strong>Pod</strong>: es la unidad de ejecución básica de una aplicación de Kubernetes, la unidad más pequeña y más simple en el modelo de objetos de Kubernetes que crea o implementa. Un Pod representa procesos que se ejecutan en su racimo.</li>
+<li><strong>Nodo</strong>: nodo contiene los servicios necesarios para ejecutar Pods, incluye el kubelet, container runtime, kube-proxy.</li>
+<li><strong>Master</strong>: es el responsable de mantener el estado deseado de tu clúster. Cuando interactúas con Kubernetes, por ejemplo: la línea de comandos kubectl, es la comunicación directa con el master de tu clúster de Kubernetes.</li>
 </ul>
 </div>
 <div id="esctructura-del-proyecto" class="slide section level1">
 <h1>Esctructura del proyecto</h1>
 <p><strong>El proyecto</strong></p>
-<p>Este proyecto necesita varios componentes para su simulacion.</p>
+<p>Este proyecto necesita varios componentes para su simulación.</p>
 <ul>
-<li>minikube</li>
-<li>VM: VirtualBox, KVM, Docker, Hyper-V</li>
-<li>cliente: kubectl</li>
-<li>imagenes: DockerHub (por defecto) pero nos sirve cualquier imagen.</li>
+<li><strong>Minikube</strong>: Cluster de Kubernetes.</li>
+<li><strong>Hypervisor</strong>: VirtualBox, KVM, Docker, Hyper-V, etc</li>
+<li><strong>Kubectl</strong>: linea de comandos cliente.</li>
+<li><strong>imagenes</strong>: Biblioteca DockerHub (por defecto), pero nos sirve cualquier imagen.</li>
 </ul>
 </div>
 <div id="esctructura-del-proyecto." class="slide section level1">
@@ -125,6 +132,7 @@ Roberto Altamirano Martínez
 <div id="esctructura-del-proyecto.-1" class="slide section level1">
 <h1>Esctructura del Proyecto.</h1>
 <p><strong>Esctructura de Gandhi K8S.</strong></p>
+<p><strong>Servers</strong></p>
 <ul>
 <li>Servicio LDAP</li>
 <li>Servicio KRB5</li>
@@ -133,17 +141,77 @@ Roberto Altamirano Martínez
 </ul>
 <p><img src="cluster-vacio.png" /></p>
 </div>
-<div id="esctructura-del-proyecto.-2" class="slide section level1">
-<h1>Esctructura del Proyecto.</h1>
-<p><strong>Estructura de usuario, el alumno</strong></p>
-<p>Representa la figura de un alumno que se conecta y hace login con sus credenciales en la escuela.</p>
+<div id="estructura-del-proyecto." class="slide section level1">
+<h1>Estructura del Proyecto.</h1>
+<p><strong>Estructura del Host</strong></p>
+<p>Utilizaremos dos containers Docker para simular un host que hará la conexión con Gandhi K8S y validara un usuario de la escuela con sus credenciales.</p>
+<p>Tenemos dos versiones de los clientes:</p>
 <ul>
-<li>Container host-samba</li>
-<li>Container host-nfs</li>
+<li><p>Container <strong>host-samba</strong></p>
+<p>Responsable de montar la zona de trabajo (home) vía <strong>cifs</strong>.</p></li>
+<li><p>Container <strong>host-nfs</strong></p>
+<p>Responsable de montar la zona de trabajo (home) vía <strong>nfs</strong>.</p></li>
 </ul>
 </div>
-<div id="pasamos-a-la-demostracion" class="slide section level1">
-<h1>Pasamos a la Demostracion</h1>
+<div id="el-cluster" class="slide section level1">
+<h1>El cluster</h1>
+<p><strong>¿como inicio mi cluster?</strong></p>
+<pre><code>minikube start </code></pre>
+<p>Nombraremos las dos opciones utilizadas para desarrollar nuestro proyecto:</p>
+<ul>
+<li><code>--driver=</code></li>
+</ul>
+<p>Nos permite especificar el hypervisor con el que vamos arrancar nuestro cluster</p>
+<ul>
+<li><code>--extra-config=apiserver.service-node-port-range=7-30000</code></li>
+</ul>
+<p>Nos permite abrir un rango de puertos diferente al que usa por defecto minikube.</p>
+</div>
+<div id="el-cluster-1" class="slide section level1">
+<h1>El Cluster</h1>
+<p><strong>¿ Que puedo hacer en minikube ?</strong></p>
+<p>Ordenes para inspeccionar/interactuar con nuestro cluster.</p>
+<pre><code>minikube version
+minikube status
+minikube ip
+minikube ssh</code></pre>
+</div>
+<div id="el-cluster-2" class="slide section level1">
+<h1>El Cluster</h1>
+<p>Minikube tiene su entorno web para poder inspeccionar la estructura del cluster.</p>
+<pre><code>minikube dashboard</code></pre>
+<div class="figure">
+<img src="ui-dashboard.png" alt="alt cloud" />
+<p class="caption">alt cloud</p>
+</div>
+</div>
+<div id="el-cluster-3" class="slide section level1">
+<h1>El Cluster</h1>
+<p><strong>¿Que puedo hacer en un cluster de minikube?</strong></p>
+<p><strong>Crear un Deployment</strong></p>
+<pre><code>kubectl create deployment http-prova --image=robert72004/http-prova:minikube</code></pre>
+<p><strong>Crear un Service</strong></p>
+<pre><code>kubectl expose deployment http-prova --type=NodePort</code></pre>
+</div>
+<div id="el-cluster-4" class="slide section level1">
+<h1>El Cluster</h1>
+<p><strong>¿Que puedo hacer en un cluster de minikube?</strong></p>
+<p><strong>Escalar un Deployment</strong></p>
+<pre><code>kubectl scale deployment http-prova --replicas=2 </code></pre>
+<p><strong>Actualizar un Deployment</strong></p>
+<pre><code>kubectl set image deployments/http-prova http-prova=robert72004/http-prova:minikubeV2</code></pre>
+</div>
+<div id="el-cluster-5" class="slide section level1">
+<h1>El Cluster</h1>
+<p><strong>monitorizar un deployment, pod o service</strong></p>
+<pre><code>kubectl describe deployments.apps http-prova 
+kubectl describe pod http-prova
+kubectl describe service http-prova</code></pre>
+<p><strong>Interactuar con un Pod</strong></p>
+<pre><code>kubectl exec -it http-prova /bin/bash</code></pre>
+</div>
+<div id="pasamos-a-la-demostración" class="slide section level1">
+<h1>Pasamos a la Demostración</h1>
 <p><img src="saludos.gif" /></p>
 </div>
 </body>
