@@ -15,19 +15,19 @@ Solo almacena y gestiona los passwords de los usuarios en su base de datos.
 
 * Conocemos los siguientes AP:
 
-	* /etc/passwd que contiene el password (AP) y también la información de la cuenta del usuario (PI).
-	* ldap el servicio que contiene los datos de la cuenta del usuario (IP) y también sus passwords (AP).
+	* /etc/passwd que contiene el password (AP) y tambien la información de la cuenta del usuario (PI).
+	* ldap el servicio que contiene los datos de la cuenta del usuario (IP) y tambien sus passwords (AP).
 
 **Information Provider IP**
 
-Los servicios que almacenan la información de la cuenta del usuario se denomina **information providers**.
+Los servicios que almacenan la informacion de la cuenta del usuario se denomina **information providers**.
 Estos servicios proporcionan: el uid, gid, shell, gecos, etc. Los mas habituales son:  /etc/passwd i ldap
 
 Por tanto:
 
-**Kerberos** solo actúa como AP  y no como IP.
+**Kerberos** solo actua como AP  y no como IP.
 
-### Configuración
+### Configuracion
 
 * Para este servidor se han instalado los siguientes paquetes: **krb5-server, krb5-workstation, krb5-libs**.
 
@@ -76,7 +76,7 @@ kadmin.local -q "addprinc -pw marta marta"
 kadmin.local -q "addprinc -pw operador operador"
 ```
 
-* De cara a la administración de los principals, concedemos permisos como administradores y al resto de usuario simplemente de lectura.
+* De cara a la adminsitracion de los principals, concedemos permisos como administradores y al resto de usuario simplemente de lectura.
 
 
 ```

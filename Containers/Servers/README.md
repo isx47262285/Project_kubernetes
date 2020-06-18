@@ -10,23 +10,23 @@
 	
 	* contienen un fichero  `startup.sh` que es el arranque del contenedor. Ejecuta el fichero install.sh que define que el contenedor de ejecute en **detach**.
 
-* Estos servidores se crean a partir del fichero **Dockerfile** que contiene todas las caracteristicas el contenedor.
+* Estos servidores se crean a partir del fichero **Dockerfile** que contiene todas las características el contenedor.
 
-Tenemos 4 Sevidores configurados:
+Tenemos 4 Servidores configurados:
 
 * **LDAP**
 Imagen de LDAP que contiene la base de datos de los usuarios.
 
-Para este proyecto hemos utilizado nuestro LDAP de la escola del treball con el que hemos trabajado.
+Para este proyecto hemos utilizado nuestro LDAP de la Escola del Treball con el que hemos trabajado.
 
 * **SAMBA**
 Un servidor SAMBA al cual para simplificar complejidad del sistema hemos integrado los homes de los usuarios en la propia imagen.
 
 
 * **KERBEROS**
-La imagen de nuestro servidor KRB5 al cual integramos la conexion con ldap para su validacion de las credenciales.
+La imagen de nuestro servidor KRB5 al cual integramos la conexión con ldap para su validación de las credenciales.
 
 * **NFS** 
 Un servidor NFS al cual para simplificar complejidad del sistema hemos integrado los homes de los usuarios en la propia imagen.
 
-Se configura la exportacion de los homes de los usuarios para su posterior montaje.
+Se configura la exportación de los homes de los usuarios para su posterior montaje.

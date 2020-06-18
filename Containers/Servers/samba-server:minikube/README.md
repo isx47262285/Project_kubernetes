@@ -1,6 +1,6 @@
 # Kubernetes
 ## @edt ASIX M14-PROJECTE Curs 2019-2020
-## Roberto Altamirano Martinez
+## Roberto Altamirano Martínez
 ### SAMBA
 
 ------------------------------------------------------------------------
@@ -10,14 +10,14 @@ hemos incluido los homes de los usuarios en este contenedor.
 
 ## SERVIDOR SAMBA
 
-* instalacion de los paquetes cifs-utils samba samba-client para desarrollar este servicio.
+* instalación de los paquetes cifs-utils samba samba-client para desarrollar este servicio.
 
-* Este servidor tiene la funcion de compartir los share que son los homes de los usuarios via **cifs**.
+* Este servidor tiene la función de compartir los share que son los homes de los usuarios vía **cifs**.
 
 
-### Configuracion 
+### Configuración 
 
-* configuracion de los homes (share) en el smb.conf
+* configuración de los homes (share) en el smb.conf
 
 ```
 [global]
@@ -36,7 +36,7 @@ hemos incluido los homes de los usuarios en este contenedor.
 ;       valid users = %S
 ;       valid users = MYDOMAIN\%S
 ```
-* instalacion basica (install.sh) de los directorios de los homes de los usuarios y añadir a los usuarios unix al servidor samba 
+* instalación básica (install.sh) de los directorios de los homes de los usuarios y añadir a los usuarios unix al servidor samba 
 
 ```
 mkdir /tmp/home

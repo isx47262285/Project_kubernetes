@@ -1,10 +1,10 @@
 # KUBERNETES
 ## @edt ASIX M14-PROJECTE Curs 2019-2020
-## Roberto Altamirano Martínez
+## Roberto Altamirano Martinez
 ### Containers
 ---
 
-Este apartado contiene los containers a utilizar.
+Este apartado contine los containers a utilizar.
 
 **Servers**
 Definimos todos los servidores que vamos a utilizar.
@@ -14,7 +14,7 @@ Definimos todos los servidores que vamos a utilizar.
 + NFS
 
 **Clientes**
-Host virtualizados por Docker para realizar la simulación.
+Host virtualizados por Docker para realizar la simulacion.
 + host-samba
 + host-nfs
 
